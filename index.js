@@ -13,6 +13,13 @@ const PORT = process.env.PORT || 5000
 app.use(express.json())
 app.use(cors())
 
+
+
+app.get('/', (res, req)=>{
+  return res.send('Server is running')
+})
+
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
    return cb(null, './public');
@@ -51,6 +58,7 @@ app.post('/api/transcribe', upload.single('audioFile'), async (req, res)=>{
 )
 
 app.post('/api/speech',Translator)
+
 
 
 
