@@ -8,15 +8,17 @@ import { Translator} from './controllers.js'
 dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8080
 
 app.use(express.json())
 app.use(cors())
 
 
 
-app.get('/', (res, req)=>{
-  return res.send('Server is running')
+app.get('/', (req, res)=>{
+
+  res.send('server is running!')
+
 })
 
 
@@ -62,4 +64,4 @@ app.post('/api/speech',Translator)
 
 
 
-app.listen(PORT, console.log(`Server is running...`))
+app.listen(PORT, console.log(`Server is running on PORT ${PORT}...`))
